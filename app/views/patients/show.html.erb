@@ -1,0 +1,71 @@
+<%= render 'shared/content_title', title: "Patient Account" %> 
+
+<p class = 'pull-right'>
+[<%= link_to("edit patient", edit_patient_path(@patient))%>]
+</p>
+
+<h4> <%= @patient.full_name %> <h4> 
+
+  I need to list out all of the tasks on a patient
+  put all of his contact information to the screen
+  allow for a post on his account and show all posts for this patient. 
+    track the user who posted it 
+    timestamp it
+    errors
+    strong parameters 
+
+  </br>
+
+  <hr> 
+    <ul> 
+    <% @patient.tasks.each do |task| %> 
+    <li><%= task.description %></li>  
+    <%end%> 
+  </ul>
+ <hr>
+
+
+  <div class='well'> 
+    <%= form_for @post do |f| %> 
+      <div class = 'control-group'> 
+        <%= f.label :Notes %> 
+        <%= f.text_area :description, :cols => "80", :rows => "5" %>
+      </div> 
+
+      <%= f.submit 'Enter Notes', class: 'btn btn-primary' %>
+       <%= hidden_field_tag :patient_id, @patient.id %> 
+
+    <% end %> 
+
+  </div> 
+
+
+  <% @patient.posts.each do |post| %> 
+  <div class='well'>  
+      <%= post.description %>
+        <span class = 'quiet'>Posted by </span> <%= link_to post.creator.first_name + ' ' + post.creator.last_name, ' ' %> 
+        <small>at <%= post.created_at %></small>
+      
+
+        <% post.comments.each do |comment| %>
+
+        <li><%= comment.body %> 
+        <span class = 'quiet'>reply from </span> <%= link_to comment.creator.first_name + ' ' + comment.creator.last_name, ' ' %> 
+        <small>at <%= comment.created_at %></small></li>
+        <% end %> 
+      </br></br>
+
+      
+
+        <%= form_for @comment do |c| %> 
+           
+          <%= c.text_field :body %> 
+          <%= c.submit 'Reply', class: 'btn' %>
+          <%= hidden_field_tag :post_id, post.id %>  
+        <% end %> 
+
+  </div>
+  
+  <% end %> 
+
+

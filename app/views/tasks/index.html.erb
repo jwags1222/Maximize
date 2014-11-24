@@ -1,0 +1,23 @@
+<h3> This is the first output by Maximize MD<h3> 
+
+    <div class='span8 well'>
+
+      <% task = @tasks.first %>
+
+      <h4>For patient: 
+      <%= link_to task.patient.firstname, '#' %>, <%= task.description %>  
+        <small class = 'quiet' > (show pt. contact info on hover over pt. name.  include left VM button. CSS?) </small> 
+      </h4> 
+
+      <small> <%=task.measure.explaination%> </small> 
+
+      </br> 
+
+      <small> <%=task.measure.qualifying_patients%> </small> 
+
+      </br> 
+
+      <small> measure name: <%=task.measure.measure_name %> </small> 
+
+
+    </div>

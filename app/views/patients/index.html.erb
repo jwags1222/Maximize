@@ -1,0 +1,20 @@
+<h3> MaximizeMD!<h3> 
+<h5><ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">All Tasks</a></li>
+  <li role="presentation"><a href="tasks{:id} or measure{id} or plan{:id}">Highmark Tasks</a></li>
+  <li role="presentation"><a href="#">UPMC Tasks</a></li>
+   <li role="presentation"><a href="#">Aetna Tasks</a></li>
+</ul><h5>
+
+<% @patients.each do |patient| %> 
+    <div class='span8 well'>
+
+      <h4>
+      <%= link_to patient.full_name, patient_path(patient)%> has gaps in care
+      </br> 
+      <%= patient.tasks.size %> tasks to be completed for <%=patient.plans.first.insurance %>, <%= patient.plans.first.plan_title %> 
+
+
+    </div>
+
+    <% end %> 

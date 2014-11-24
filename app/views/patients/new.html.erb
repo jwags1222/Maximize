@@ -1,0 +1,8 @@
+<%= render 'shared/content_title', title: "Mass import from file or add single patient" %> 
+
+<%= form_tag import_patients_path, multipart: true do %> 
+<%= file_field_tag :file %> 
+<%= submit_tag "Import", class: 'btn btn-info btn-small'  %> 
+<% end %> 
+
+<hr>

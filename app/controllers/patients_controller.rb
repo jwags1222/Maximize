@@ -11,6 +11,7 @@ class PatientsController < ApplicationController
   end 
 
   def new
+    @plans = Plan.all 
     @patient = Patient.new 
   end
 
@@ -18,9 +19,15 @@ class PatientsController < ApplicationController
 
   end
 
+  def edit
+
+  end 
+
   def import
 
-    Patient.import(params[:file])
+    binding.pry
+
+    Patient.import(params[:file], Plan.find(params[:plan]))
     flash[:notice] = "Patients imported"
     redirect_to root_path 
 

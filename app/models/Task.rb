@@ -6,5 +6,7 @@ class Task < ActiveRecord::Base
   has_many :patient_tasks
   has_many :patients, through: :patient_tasks
 
+  has_many :gaps 
+
 
 end 

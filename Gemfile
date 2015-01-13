@@ -9,7 +9,11 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
+
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'

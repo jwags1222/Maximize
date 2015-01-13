@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   #validates :user_name, presence: true, uniqueness: true 
   #validates :password, presence: true, on: :create, length: {minimum: 8}
 
+  def full_name
+  [self.first_name, self.last_name].reject {|s| s.nil?}.join(' ') 
+  end 
+
 end 

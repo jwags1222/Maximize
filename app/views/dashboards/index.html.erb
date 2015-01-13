@@ -1,16 +1,4 @@
-<%= render 'shared/content_title', title: "Mass import from file or add single patient" %> 
-
-
-
-<%= form_tag import_patients_path, multipart: true do %>
-<h3>Select P4P plan </h3> 
-<%= select_tag :plan, options_from_collection_for_select(@plans,:id, :plan_title)  %> 
-</br></br>
-<%= file_field_tag :file %> 
-<%= submit_tag "Import", class: 'btn btn-info btn-small'  %> 
-<% end %> 
-
-<hr>
+<%= render 'shared/content_title', title: "Dashboards" %> 
 
 <div id="myfirstchart" style="height: 250px;"></div>
 

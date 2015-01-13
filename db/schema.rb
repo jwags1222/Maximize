@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121210217) do
+ActiveRecord::Schema.define(version: 20141129211344) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20141121210217) do
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "gaps", force: true do |t|
+    t.string  "measure_name"
+    t.integer "patient_id"
+    t.integer "task_id"
+    t.integer "measure_id"
+    t.integer "payer_code_id"
+    t.boolean "open"
   end
 
   create_table "measures", force: true do |t|
@@ -33,6 +42,13 @@ ActiveRecord::Schema.define(version: 20141121210217) do
     t.text     "explaination"
     t.text     "measure_name"
     t.integer  "plan_id"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patient_measures", force: true do |t|
+    t.integer  "measure_id"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
